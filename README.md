@@ -112,7 +112,7 @@ While Mutex locks provide a robust solution for data sharing, it's crucial to st
 ### Cloning the Repository
 Start by cloning the repository from GitHub:
 ```bash
-git clone git@github.com:cuthbert-lwinga/Neural-Net-PHP.git
+git clone git@github.com:cuthbert-lwinga/PHPThreading.git
 ```
 
 ## License 📝
