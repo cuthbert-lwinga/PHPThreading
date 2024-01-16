@@ -183,7 +183,7 @@ public function parseAndSetFunction($function){
 	}
 
 	public function analyzeFunctionStringClosureWithVariable($inputString) {
-	    $regex = '/(\$[a-z_]\w*)(\s*=\s*)(\s*function|fn\s*)(\s*\(.*?\)\s*)(\s*\{(?:[^{}]|(?R)|\{(?:[^{}]|(?R))*\})*\}\s*)/i';
+	    $regex = '/(\$[a-z_]\w*)(\s*=\s*)(\s*function|fn\s*)(\s*\(.*?\)\s*)(\s*\{(?:[^{}]|(?3))*\}\s*)/i';
 	    $matches = [];
 
 	    if (preg_match($regex, $inputString, $matches)) {
@@ -205,7 +205,7 @@ public function parseAndSetFunction($function){
 	}
 
 	public function analyzeFunctionStringClosureWithNoVariable($inputString) {
-    $functionRegex = '/(\s*function|fn\s*)(\s*\(.*?\)\s*)(\s*\{(?:[^{}]|(?R)|\{(?:[^{}]|(?R))*\})*\}\s*)/i';
+    $functionRegex = '/(\s*function|fn\s*)(\s*\(.*?\)\s*)(\s*\{(?:[^{}]|(?3))*\}\s*)/i';
     $matches = [];
 
     if (preg_match($functionRegex, $inputString, $matches)) {
