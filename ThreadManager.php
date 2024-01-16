@@ -101,6 +101,19 @@ class ThreadManager {
         return @$return[$name];
     }
 
+    public static function getOutput(){
+        ThreadManager::acquireLock();
+        $output = ThreadManager::$memory->getExecuted();
+        ThreadManager::releaseLock();
+        return $output;
+    }
+
+    public static function clearOutput(){
+        ThreadManager::acquireLock();
+        ThreadManager::$memory->clearOutput();
+        ThreadManager::releaseLock();
+    }
+
     public static function execute($closure,$pid=NULL){
         self::startMem();
         ThreadManager::acquireLock();

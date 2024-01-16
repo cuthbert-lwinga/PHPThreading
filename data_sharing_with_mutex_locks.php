@@ -9,8 +9,12 @@ for($i = 0;$i < 2; $i++){
 		ThreadManager::var("x", $currentX + 1,$acquire_sem_lock = false);
 		echo "PID:: ".getmypid()." of x = ".ThreadManager::getVar("x",$acquire_sem_lock = false)."\n";
 		ThreadManager::releaseLock();
+		return ThreadManager::getVar("x",$acquire_sem_lock = false);
 	}); 
 }
 ThreadManager::wait();
+
+var_dump(ThreadManager::getOutput());
+
 ThreadManager::shutdown();
 ?>

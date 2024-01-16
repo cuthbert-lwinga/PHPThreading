@@ -164,6 +164,25 @@ public function findSerializeError($originalData) {
         // sem_release($instance->semaphore);
     }
 
+    public function getExecuted()
+    {
+    	$instance = Memory::getInstance();
+    	// sem_acquire($instance->semaphore);
+    	$instance->reload();
+    	return $instance->executed;
+        // sem_release($instance->semaphore);
+    }
+
+    public function clearExecuted()
+    {
+    	$instance = Memory::getInstance();
+    	// sem_acquire($instance->semaphore);
+    	$instance->reload();
+    	$instance->executed = [];
+        $instance->save();
+        // sem_release($instance->semaphore);
+    }
+
     public function updateThreadState($pid,$state)
     {
     	$instance = Memory::getInstance();
